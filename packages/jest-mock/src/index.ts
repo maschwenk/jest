@@ -1192,6 +1192,10 @@ export class ModuleMocker {
     this._mockState = new WeakMap();
   }
 
+  mockNames(): string[] {
+    return this._mockState.map(mock => mock.getMockName());
+  }
+
   restoreAllMocks(): void {
     this._spyState.forEach(restore => restore());
     this._spyState = new Set();
